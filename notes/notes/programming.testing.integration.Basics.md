@@ -2,7 +2,7 @@
 id: bryprof9fv7fuqw2fgdqh1s
 title: Basics
 desc: ""
-updated: 1677050281837
+updated: 1677226205706
 created: 1676922484215
 ---
 
@@ -49,3 +49,27 @@ In this type we test the performance of the application when some defined number
 As you can see the lower you go on the pyramid, the less you have to do. Well,, it is not as simple as LESS but it is cheaper to write unit tests that integration or E2E tests. and the lower you go the faster your tests can run.
 
 Integration tests sits at the sweet spot in which the are not that expensive to write and they are not the slowest to run. therefore they can give the most value for your time and mony.
+
+#### why should we write integration tests ?
+
+Unit testing is fast and easier to write, however they don't give a realistic representation of how the system will behave because we are mocking outside components like APIs and databases. So if we have an existing system that is badly written , and the business logic is spread between the c# code and stored procedure at the DB level, writing unit tests will not help in insuring that the system will behave as expected.
+
+That's where the integration tests shine, we write integration tests to insure that the application is behaving as expected and then we can refactor it safely
+
+In short. Integration test insures that the system works as expected against realistic connection with dependencies.
+
+#### Scope of integration tests
+
+the scope of integration testing is basically every dependency that we own. Suppose we have a system in which we are calling a database, a filesystem and the github API. Well , we don't own the github api so we have to replace it with another internal API that will give the same expected responses and test against that
+
+![integration testing scope](/assets/integration-testing-scope.png)
+
+![integration testing scope](/assets/integration-tesing-replace-api.png)
+
+### Integration testing steps:
+
+1. Setup: creating the needed resources like database
+2. mocking: mocking external resources like APIs
+3. Execution: executing the part of code that we need to test and get the result
+4. Assersion: checking the expected result verses the actual returned result in the execution step
+5. Cleanup: removing already created data.
