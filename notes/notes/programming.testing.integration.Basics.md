@@ -2,7 +2,7 @@
 id: bryprof9fv7fuqw2fgdqh1s
 title: Basics
 desc: ""
-updated: 1677226205706
+updated: 1677226371149
 created: 1676922484215
 ---
 
@@ -62,9 +62,9 @@ In short. Integration test insures that the system works as expected against rea
 
 the scope of integration testing is basically every dependency that we own. Suppose we have a system in which we are calling a database, a filesystem and the github API. Well , we don't own the github api so we have to replace it with another internal API that will give the same expected responses and test against that
 
-![integration testing scope](/assets/integration-testing-scope.png)
+![integration testing scope](/notes/notes/assets/integration-testing-scope.png)
 
-![integration testing scope](/assets/integration-tesing-replace-api.png)
+![integration testing scope](/notes/notes/assets/integration-tesing-replace-api.png)
 
 ### Integration testing steps:
 
